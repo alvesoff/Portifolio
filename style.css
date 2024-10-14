@@ -311,19 +311,26 @@ section{
   font-size: 8rem;
 }
 
-.projects{
+.projects {
   background-color: var(--second-bg-color);
+  position: relative;
+  overflow: hidden;
+}
+
+.projects-container {
+  overflow: hidden;
+  width: 100%;
 }
 
 .projects-box {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); /* Ajuste a largura mínima se necessário */
-  place-items: center;
-  gap: 3rem;
-  row-gap: 5rem;
+  display: flex;
+  transition: transform 0.5s ease-in-out;
+  width: calc(350px * 6); /* Ajuste conforme necessário */
 }
 
-.project-card{
+.project-card {
+  min-width: 350px;
+  margin: 0 1rem;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -340,24 +347,45 @@ section{
   transition: 0.3s ease;
 }
 
-.project-card:hover{
+.project-card:hover {
   box-shadow: 0 0 25px var(--main-color), 0 0 50px var(--main-color);
   transform: scale(1.02);
 }
 
-.project-card img{
+.project-card img {
   max-width: 300px;
   border-radius: 2em;
   object-fit: cover;
 }
 
-.project-card h3{
+.project-card h3 {
   font-size: 3rem;
 }
 
-.project-card p{
+.project-card p {
   font-size: 1.6rem;
 }
+
+button.prev, button.next {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: rgba(0, 0, 0, 0.5);
+  color: white;
+  border: none;
+  padding: 1rem;
+  cursor: pointer;
+  z-index: 10;
+}
+
+button.prev {
+  left: 0;
+}
+
+button.next {
+  right: 0;
+}
+
 
 .contact{
   background-color: var(--bg-color);
