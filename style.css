@@ -199,6 +199,8 @@ section{
   color: black;
 }
 
+
+
 .about{
   display: flex;
   justify-content: center;
@@ -311,52 +313,115 @@ section{
   font-size: 8rem;
 }
 
-.projects{
-  background-color: var(--second-bg-color);
+.projects {
+  background-color: var(--second-bg-color); /* Define a cor de fundo da seção de projetos */
+  position: relative; /* Define a posição relativa para a seção */
+  overflow: hidden; /* Oculta qualquer conteúdo que transborde da seção */
+  display: flex; /* Define o layout flexível para a seção */
+  flex-direction: column; /* Organiza os elementos em coluna */
+  justify-content: center; /* Centraliza os projetos horizontalmente */
+  align-items: center; /* Centraliza os projetos verticalmente */
+  height: 100vh; /* Define a altura da seção para ocupar toda a altura da tela */
+}
+
+.heading {
+  font-size: 4.5rem; /* Define o tamanho da fonte do título */
+  margin-bottom: 2rem; /* Adiciona margem inferior ao título */
+  text-align: center; /* Centraliza o texto do título */
+}
+
+.projects-container {
+  display: flex; /* Define o layout flexível para o contêiner de projetos */
+  justify-content: center; /* Centraliza os projetos horizontalmente */
+  align-items: center; /* Centraliza os projetos verticalmente */
+  width: 100%; /* Define a largura do contêiner para 100% */
 }
 
 .projects-box {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); /* Ajuste a largura mínima se necessário */
-  place-items: center;
-  gap: 3rem;
-  row-gap: 5rem;
+  display: flex; /* Define o layout flexível para o contêiner de projetos */
+  transition: transform 0.5s ease-in-out; /* Adiciona uma transição suave para transformações */
 }
 
-.project-card{
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  background-color: var(--bg-color);
-  border: 2px solid var(--main-color);
-  border-radius: 3rem;
-  gap: 2rem;
-  padding: 5rem 2rem;
-  overflow: hidden;
-  cursor: pointer;
-  box-shadow: 0 0 5px var(--main-color);
-  transition: 0.3s ease;
+.project-card {
+  min-width: 350px; /* Define a largura mínima dos cartões */
+  margin: 0 1rem; /* Adiciona margem horizontal aos cartões */
+  display: flex; /* Define o layout flexível para os cartões */
+  flex-direction: column; /* Organiza os elementos dos cartões em coluna */
+  align-items: center; /* Centraliza os elementos horizontalmente */
+  justify-content: center; /* Centraliza os elementos verticalmente */
+  text-align: center; /* Centraliza o texto dentro dos cartões */
+  background-color: var(--bg-color); /* Define a cor de fundo dos cartões */
+  border: 2px solid var(--main-color); /* Adiciona uma borda aos cartões */
+  border-radius: 3rem; /* Define bordas arredondadas para os cartões */
+  gap: 2rem; /* Adiciona espaçamento entre os elementos dos cartões */
+  padding: 5rem 2rem; /* Adiciona preenchimento interno aos cartões */
+  overflow: hidden; /* Oculta qualquer conteúdo que transborde dos cartões */
+  cursor: pointer; /* Define o cursor como ponteiro ao passar sobre os cartões */
+  box-shadow: 0 0 5px var(--main-color); /* Adiciona sombra aos cartões */
+  transition: 0.3s ease; /* Adiciona uma transição suave para transformações */
 }
 
-.project-card:hover{
-  box-shadow: 0 0 25px var(--main-color), 0 0 50px var(--main-color);
-  transform: scale(1.02);
+.project-card:hover {
+  box-shadow: 0 0 25px var(--main-color), 0 0 50px var(--main-color); /* Aumenta a sombra ao passar o mouse */
+  transform: scale(1.02); /* Aumenta ligeiramente o tamanho ao passar o mouse */
 }
 
-.project-card img{
-  max-width: 300px;
-  border-radius: 2em;
-  object-fit: cover;
+.project-card img {
+  width: 100%; /* Define a largura das imagens para ocupar 100% do contêiner */
+  height: auto; /* Mantém a proporção das imagens */
+  max-width: 300px; /* Define a largura máxima das imagens */
+  height: 200px; /* Define uma altura fixa para as imagens */
+  border-radius: 2em; /* Define bordas arredondadas para as imagens */
+  object-fit: cover; /* Ajusta a imagem para cobrir o contêiner */
 }
 
-.project-card h3{
-  font-size: 3rem;
+.project-card h3 {
+  font-size: 3rem; /* Define o tamanho da fonte dos títulos */
 }
 
-.project-card p{
-  font-size: 1.6rem;
+.project-card p {
+  font-size: 1.6rem; /* Define o tamanho da fonte dos parágrafos */
+  flex-grow: 1; /* Permite que os parágrafos cresçam para preencher o espaço disponível */
+  margin: 10px 0; /* Adiciona margem vertical aos parágrafos */
+  width: 100%; /* Garante que os parágrafos ocupem toda a largura disponível */
+  text-align: left; /* Alinha os parágrafos à esquerda */
+}
+
+
+.project-card .btn {
+  display: inline-block; /* Define o botão como um bloco inline */
+  padding: 10px 20px; /* Adiciona preenchimento interno ao botão */
+  margin-top: 10px; /* Adiciona margem superior ao botão */
+  background-color: var(--main-color); /* Mantém a cor de fundo original do botão */
+  color: #fff; /* Define a cor do texto do botão */
+  text-decoration: none; /* Remove a decoração do texto do botão */
+  border-radius: 5px; /* Define bordas arredondadas para o botão */
+  transition: background-color 0.3s; /* Adiciona uma transição suave para a cor de fundo */
+  align-self: center; /* Centraliza o botão horizontalmente */
+}
+
+.project-card .btn:hover {
+  background-color: darken(var(--main-color), 10%); /* Escurece a cor de fundo ao passar o mouse */
+}
+
+button.prev, button.next {
+  background-color: var(--main-color); /* Define a cor de fundo dos botões */
+  color: #fff; /* Define a cor do texto dos botões */
+  border: none; /* Remove a borda dos botões */
+  padding: 10px 20px; /* Adiciona preenchimento interno aos botões */
+  cursor: pointer; /* Define o cursor como ponteiro ao passar sobre os botões */
+  border-radius: 5px; /* Define bordas arredondadas para os botões */
+  position: absolute; /* Define a posição absoluta dos botões */
+  top: 50%; /* Centraliza os botões verticalmente */
+  transform: translateY(-50%); /* Ajusta a posição dos botões */
+}
+
+button.prev {
+  left: 130px; /* Define a posição do botão "prev" */
+}
+
+button.next {
+  right: 130px; /* Define a posição do botão "next" */
 }
 
 .contact{
